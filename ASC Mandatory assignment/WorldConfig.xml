@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<!-- Configure the size of the world-->
+	<MaxX>1000</MaxX>
+	<MaxY>1000</MaxY>
+</root>
