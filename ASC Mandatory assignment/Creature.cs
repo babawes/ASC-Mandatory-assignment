@@ -35,7 +35,15 @@ namespace ASC_Mandatory_assignment
         
         public void Hit(Creature creature)
         {
-            int attackValue = this.CurrentWeapon.AttackValue;
+            int attackValue;
+            if (CurrentWeapon != null)
+            {
+                attackValue = this.CurrentWeapon.AttackValue;
+            }
+            else
+            {
+                attackValue = 1;
+            }
             if (Diseased)
             {
                 attackValue = attackValue/2;
@@ -65,7 +73,15 @@ namespace ASC_Mandatory_assignment
 
         public void ReceiveHit(int UnmitigatedDamage)
         {
-            int ActualDamage = UnmitigatedDamage - this.CurrentArmor.DefenseValue;
+            int ActualDamage;
+            if (CurrentArmor != null)
+            {
+                ActualDamage = UnmitigatedDamage - this.CurrentArmor.DefenseValue;
+            }
+            else
+            {
+                ActualDamage = UnmitigatedDamage;
+            }
             if (ActualDamage < 0)
             {
                 ActualDamage = 0;

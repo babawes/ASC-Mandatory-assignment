@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ASC_Mandatory_assignment
 {
-
+    /// <summary>
+    /// Interface for the Item class, both AttackItem and DefenseItem inherit from this
+    /// </summary>
     public interface Item
     {
         public Creature Wearer { get; set; }

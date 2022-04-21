@@ -10,6 +10,7 @@ namespace ASC_Mandatory_assignment
     /// <summary>
     /// A DefenseItem such as armor has a DefenseValue which mitigates damage taken 1:1.
     /// It inherits from the abstract class Item
+    /// The update method is called when the Dead state of the creature wearing it becomes true, and causes it to drop in the world contained in a world object at the dead Creatures position
     /// </summary>
     public class DefenseItem : Item
     {
@@ -28,6 +29,8 @@ namespace ASC_Mandatory_assignment
                 new Position(Wearer.CurrentPosition.X, Wearer.CurrentPosition.Y));
             droppedLoot.LootableDefenseItem = this;
             World.WorldObjectsInWorld.Add(droppedLoot);
+            Wearer.CurrentArmor = null;
+            Wearer = null;
         }
     }
 }

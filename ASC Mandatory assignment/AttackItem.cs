@@ -9,6 +9,7 @@ namespace ASC_Mandatory_assignment
     /// <summary>
     /// An AttackItem is a weapon and has an AttackValue how much damage it does, and an AttackRange how far it can reach or shoot.
     /// It inherits from the abstract class Item
+    /// /// The update method is called when the Dead state of the creature wearing it becomes true, and causes it to drop in the world contained in a world object at the dead Creatures position
     /// </summary>
     public class AttackItem : Item
     {
@@ -30,6 +31,8 @@ namespace ASC_Mandatory_assignment
                 new Position(Wearer.CurrentPosition.X, Wearer.CurrentPosition.Y));
             droppedLoot.LootableWeapon = this;
             World.WorldObjectsInWorld.Add(droppedLoot);
+            Wearer.CurrentWeapon = null;
+            Wearer = null;
         }
 
 
