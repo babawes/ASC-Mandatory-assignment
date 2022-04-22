@@ -11,7 +11,7 @@ namespace ASC_Mandatory_assignment
     /// It inherits from the abstract class Item
     /// /// The update method is called when the Dead state of the creature wearing it becomes true, and causes it to drop in the world contained in a world object at the dead Creatures position
     /// </summary>
-    public class AttackItem : Item
+    public class AttackItem : IItem
     {
         #region Properties
         public int AttackValue { get; set; }
@@ -24,7 +24,9 @@ namespace ASC_Mandatory_assignment
         #endregion
 
 
-
+        /// <summary>
+        /// This will be called when the Wearer of an Item dies, and will then create a WorldObject containing the Item, which can be looted
+        /// </summary>
         public void Update()
         {
             WorldObject droppedLoot = new WorldObject($"{Wearer.Name}'s dropped weapon",

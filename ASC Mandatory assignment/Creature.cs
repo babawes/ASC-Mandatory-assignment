@@ -33,6 +33,10 @@ namespace ASC_Mandatory_assignment
 
         #region Methods
         
+        /// <summary>
+        /// This method will hit another target Creature with the CurrentWeapon, if no weapon is equipped the unarmed damage will be 1
+        /// </summary>
+        /// <param name="creature">This parameter is the target creature for the hit</param>
         public void Hit(Creature creature)
         {
             int attackValue;
@@ -52,6 +56,10 @@ namespace ASC_Mandatory_assignment
             CombatTrace.TraceEvent(TraceEventType.Information, 1, $"{this.Name} attacked {creature.Name} with {this.CurrentWeapon.Name} for {attackValue} damage");
         }
         
+        /// <summary>
+        /// This method will loot a given WorldObject if it is Lootable, it will automatically equip the LootableWeapon and LootableDefenseItem
+        /// </summary>
+        /// <param name="item">The WorldObject to loot</param>
         public void Loot(WorldObject item)
         {
             if (item.Lootable)
@@ -70,7 +78,10 @@ namespace ASC_Mandatory_assignment
         }
 
         
-
+        /// <summary>
+        /// This is the method for a creature to take a hit, the incoming UnmitigatedDamage is reduced by the DefenseValue of the CurrentArmor
+        /// </summary>
+        /// <param name="UnmitigatedDamage"></param>
         public void ReceiveHit(int UnmitigatedDamage)
         {
             int ActualDamage;

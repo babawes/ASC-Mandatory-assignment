@@ -28,7 +28,7 @@ namespace ASC_Mandatory_assignment
         {
             
         }
-
+        
         public WorldObject(string name, Position position)
         {
             Name = name;

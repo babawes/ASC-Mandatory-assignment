@@ -12,7 +12,7 @@ namespace ASC_Mandatory_assignment
     /// It inherits from the abstract class Item
     /// The update method is called when the Dead state of the creature wearing it becomes true, and causes it to drop in the world contained in a world object at the dead Creatures position
     /// </summary>
-    public class DefenseItem : Item
+    public class DefenseItem : IItem
     {
         #region Properties
         public int DefenseValue { get; set; }
