@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Xml;
+using ASC_Mandatory_assignment.Interfaces;
 
 namespace ASC_Mandatory_assignment
 {
     /// <summary>
     /// The world contains a List of Creatures and a List of WorldObjects, it also has the bounds defined by MaxX and MaxY.
     /// </summary>
-    public class World
+    public class World : IWorld
     {
         #region Properties
 

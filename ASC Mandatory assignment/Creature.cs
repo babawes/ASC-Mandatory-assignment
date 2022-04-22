@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using ASC_Mandatory_assignment.Interfaces;
 
 namespace ASC_Mandatory_assignment
 {
@@ -16,7 +17,7 @@ namespace ASC_Mandatory_assignment
     /// The targeted Creature then calculates how much damage its armor mitigates. Both events are traced, so they can be logged as a sort of CombatLog
     /// It has a State Diseased, which causes it to deal half as much damage
     /// </summary>
-    public class Creature
+    public class Creature  : ICreature
     {
         #region Properties
         public int MaxHitPoints { get; set; }
@@ -32,7 +33,7 @@ namespace ASC_Mandatory_assignment
         #endregion
 
         #region Methods
-        
+
         /// <summary>
         /// This method will hit another target Creature with the CurrentWeapon, if no weapon is equipped the unarmed damage will be 1
         /// </summary>
@@ -50,12 +51,12 @@ namespace ASC_Mandatory_assignment
             }
             if (Diseased)
             {
-                attackValue = attackValue/2;
+                attackValue = attackValue / 2;
             }
             creature.ReceiveHit(attackValue);
             CombatTrace.TraceEvent(TraceEventType.Information, 1, $"{this.Name} attacked {creature.Name} with {this.CurrentWeapon.Name} for {attackValue} damage");
         }
-        
+
         /// <summary>
         /// This method will loot a given WorldObject if it is Lootable, it will automatically equip the LootableWeapon and LootableDefenseItem
         /// </summary>
@@ -73,11 +74,11 @@ namespace ASC_Mandatory_assignment
                 {
                     CurrentArmor = item.LootableDefenseItem;
                 }
-                
+
             }
         }
 
-        
+
         /// <summary>
         /// This is the method for a creature to take a hit, the incoming UnmitigatedDamage is reduced by the DefenseValue of the CurrentArmor
         /// </summary>
@@ -99,7 +100,7 @@ namespace ASC_Mandatory_assignment
             }
             this.CurrentHitPoints = this.CurrentHitPoints - (ActualDamage);
             CombatTrace.TraceEvent(TraceEventType.Information, 2, $"{this.Name} took {ActualDamage} damage, their armor mitigated up to {this.CurrentArmor.DefenseValue} damage");
-            if (CurrentHitPoints<=0)
+            if (CurrentHitPoints <= 0)
             {
                 Dead = true;
                 CurrentWeapon.Update();
@@ -107,7 +108,7 @@ namespace ASC_Mandatory_assignment
                 CombatTrace.TraceEvent(TraceEventType.Information, 3, $"{this.Name} hit points dropped to {this.CurrentHitPoints} and they died");
 
             }
-            
+
         }
 
 

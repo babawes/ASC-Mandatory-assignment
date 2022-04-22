@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using ASC_Mandatory_assignment.Interfaces;
 
 namespace ASC_Mandatory_assignment
 {
@@ -11,7 +12,7 @@ namespace ASC_Mandatory_assignment
     /// A WorldObject such as a chest, it Contains an AttackItem LootableWeapon, and a DefenseItem LootableDefenseItem.
     /// It also has a Position, a Name, and 2 booleans that define if it is Lootable and Removable
     /// </summary>
-    public class WorldObject
+    public class WorldObject : IWorldObject
     {
         #region Properties
 

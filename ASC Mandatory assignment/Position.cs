@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ASC_Mandatory_assignment.Interfaces;
 
 namespace ASC_Mandatory_assignment
 {
     /// <summary>
     /// The position a WorldObject or a Creature has, X and Y coordinates as int
     /// </summary>
-    public class Position
+    public class Position : IPosition
     {
         #region Properties
 
