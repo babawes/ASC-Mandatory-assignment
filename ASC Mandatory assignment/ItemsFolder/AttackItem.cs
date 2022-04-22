@@ -23,7 +23,13 @@ namespace ASC_Mandatory_assignment
         public World World { get; set; }
         #endregion
 
-
+        public AttackItem(int attackValue, int attackRange, string name, World world)
+        {
+            AttackValue = attackValue;
+            AttackRange = attackRange;
+            Name = name;
+            World = world;
+        }
         /// <summary>
         /// This will be called when the Wearer of an Item dies, and will then create a WorldObject containing the Item, which can be looted
         /// </summary>

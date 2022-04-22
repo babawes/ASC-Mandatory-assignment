@@ -22,6 +22,12 @@ namespace ASC_Mandatory_assignment
         public World World { get; set; }
         #endregion
 
+        public DefenseItem(int defenseValue, string name, World world)
+        {
+            DefenseValue = defenseValue;
+            Name = name;
+            World = world;
+        }
 
         public void Update()
         {
