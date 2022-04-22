@@ -19,7 +19,7 @@ namespace ASC_Mandatory_assignment.Factories
         /// <returns></returns>
         public IItem CreateItem(string name, World world)
         {
-            var rand = new Random();
+            var rand = new Random(DateTime.Now.Millisecond);
             int attackValue = rand.Next(1 - 10);
             int attackRange = rand.Next(1 - 3);
             AttackItem newAttackItem = new AttackItem(attackValue, attackRange, name, world);
