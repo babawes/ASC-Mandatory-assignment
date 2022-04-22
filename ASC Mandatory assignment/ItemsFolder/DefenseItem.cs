@@ -28,7 +28,7 @@ namespace ASC_Mandatory_assignment
             Name = name;
             World = world;
         }
-
+        
         public void Update()
         {
             WorldObject droppedLoot = new WorldObject($"{Wearer.Name}'s dropped armor",
